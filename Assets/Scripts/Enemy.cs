@@ -1,0 +1,53 @@
+using UnityEngine;
+
+public class Enemy : MonoBehaviour
+{
+    [SerializeField] private float speed = 1f;
+    [SerializeField] private float distance = 2f;
+    private Vector3 startPos;
+    private bool movingRight = true;
+
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform groundCheck;
+    private bool isGrounded;
+    private Rigidbody2D rb;
+    private void Awake()
+    {
+        rb=GetComponent<Rigidbody2D>();
+    }
+    void Start()
+    {
+        startPos = transform.position;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        float leftBound = startPos.x - distance;
+        float rightBound = startPos.x + distance;
+        if (movingRight)
+        {
+            transform.Translate(Vector2.right*speed*Time.deltaTime);
+            if (transform.position.x >= rightBound)
+            {
+                movingRight = false;
+                Flip();
+            }
+        }
+        else
+        {
+            transform.Translate(Vector2.left*speed*Time.deltaTime);
+            if (transform.position.x <= leftBound)
+            {
+                movingRight = true;
+                Flip();
+            }
+        }
+    }
+    void Flip()
+    {
+        Vector3 scaler = transform.localScale;
+        scaler.x *= -1;
+        transform.localScale = scaler;
+    }
+}
