@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
     }
     private void handleJump()
     {
-        if(Input.GetButtonDown("Jump")&&isGrounded)
+        if((Input.GetButtonDown("Jump")|| Input.GetKey(KeyCode.UpArrow)) && isGrounded)
         {
             rb.linearVelocity=new Vector2(rb.linearVelocity.x, jumpForce);
         }
