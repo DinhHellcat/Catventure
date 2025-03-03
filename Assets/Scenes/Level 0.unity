@@ -395,10 +395,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 744443935}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: RestartGame
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -477,6 +477,63 @@ Transform:
   - {fileID: 1705220363}
   m_Father: {fileID: 1193039021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &204603883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1193039021}
+    m_Modifications:
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.10356
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.19824874
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.4282508
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7315051736989085395, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+      propertyPath: m_Name
+      value: Coin
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
 --- !u!1 &217448098
 GameObject:
   m_ObjectHideFlags: 0
@@ -1748,9 +1805,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07390e21190dec41bdc13ccadc12575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  gameOverUi: {fileID: 0}
-  gameWinUi: {fileID: 0}
+  scoreText: {fileID: 539619171}
+  gameOverUi: {fileID: 1019928472}
+  gameWinUi: {fileID: 217448098}
 --- !u!4 &744443936
 Transform:
   m_ObjectHideFlags: 0
@@ -2297,6 +2354,7 @@ Transform:
   - {fileID: 1585467423}
   - {fileID: 1627491758}
   - {fileID: 1695699018}
+  - {fileID: 1645883711}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205268720
@@ -2640,6 +2698,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6dd26f78d6910428711b33b8352597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpForce: 2
 --- !u!1 &1364243179
 GameObject:
   m_ObjectHideFlags: 0
@@ -2841,6 +2900,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5060793964337904492, guid: 51726be268ec7fe41839b7ff2a52133f, type: 3}
   m_PrefabInstance: {fileID: 2094972234}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1645883711 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 911317802691859674, guid: b01f5ac1064d97e488df6c18127094a9, type: 3}
+  m_PrefabInstance: {fileID: 204603883}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1695699017
 GameObject:
@@ -14638,10 +14702,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 744443935}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GoToMenu
-        m_Mode: 1
+        m_MethodName: NextLevel
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14994,6 +15058,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1585467423}
     m_Modifications:
+    - target: {fileID: 299478517118098143, guid: 9596dfd425bb5254483a8f2604aa1b04, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1205268721}
+    - target: {fileID: 299478517118098143, guid: 9596dfd425bb5254483a8f2604aa1b04, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 3323236624106270212, guid: 9596dfd425bb5254483a8f2604aa1b04, type: 3}
       propertyPath: m_Name
       value: Enemy4

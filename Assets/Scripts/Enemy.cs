@@ -7,13 +7,8 @@ public class Enemy : MonoBehaviour
     private Vector3 startPos;
     private bool movingRight = true;
 
-    [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private Transform groundCheck;
-    private bool isGrounded;
-    private Rigidbody2D rb;
     private void Awake()
     {
-        rb=GetComponent<Rigidbody2D>();
     }
     void Start()
     {

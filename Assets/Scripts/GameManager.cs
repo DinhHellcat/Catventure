@@ -43,13 +43,22 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         gameWinUi.SetActive(true);
     }
-    public void RestartGame()
+    public void RestartGame(int levelId)
     {
         isGameOver=false;
         score = 0;
         UpdateScore();
         Time.timeScale = 1;
-        SceneManager.LoadScene("Game");
+        string levelName = "Level " + levelId;
+        SceneManager.LoadScene(levelName);
+    }
+
+    public void NextLevel(int levelId)
+    {
+        UpdateScore();
+        Time.timeScale = 1;
+        string levelName = "Level " + (levelId+1);
+        SceneManager.LoadScene(levelName);
     }
     public bool IsGameOver()
     {
