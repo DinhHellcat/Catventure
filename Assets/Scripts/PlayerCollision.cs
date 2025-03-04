@@ -55,6 +55,10 @@ public class PlayerCollison : MonoBehaviour
                 {
                     gameManager.GameOver();
                 }
-            }
+        }
+        else if (collision.CompareTag("Deadzone"))
+        {
+            gameManager.GameOver();
         }
     }
+}

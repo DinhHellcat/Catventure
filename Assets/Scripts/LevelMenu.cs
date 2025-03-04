@@ -8,6 +8,7 @@ public class LevelMenu : MonoBehaviour
 
     private void Awake()
     {
+        PlayerPrefs.DeleteAll();
         int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
         for(int i = 0; i < buttons.Length; i++)
         {

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private int score = 0;
+    private int initialScore = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject gameOverUi;
     [SerializeField] private GameObject gameWinUi;
@@ -12,11 +13,12 @@ public class GameManager : MonoBehaviour
     private bool isGameWin = false;
     void Start()
     {
+        score = PlayerPrefs.GetInt("CurrentScore", 0);
+        initialScore = score;
         UpdateScore();
         gameOverUi.SetActive(false);
         gameWinUi.SetActive(false);
     }
-
     public void AddScore(int points)
     {
         if (!isGameOver&&!isGameWin)
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         isGameOver = true;
-        score = 0;
+        score = initialScore;
         Time.timeScale = 0;
         gameOverUi.SetActive(true);
     }
@@ -40,13 +42,16 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
         isGameWin = true;
+        PlayerPrefs.SetInt("CurrentScore", score);
         Time.timeScale = 0;
         gameWinUi.SetActive(true);
     }
     public void RestartGame(int levelId)
     {
         isGameOver=false;
-        score = 0;
+        isGameWin=false;
+        score = initialScore;
+        PlayerPrefs.SetInt("CurrentScore", score);
         UpdateScore();
         Time.timeScale = 1;
         string levelName = "Level " + levelId;
@@ -55,6 +60,8 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel(int levelId)
     {
+        isGameOver=false;
+        isGameWin=false;
         UpdateScore();
         Time.timeScale = 1;
         string levelName = "Level " + (levelId+1);
