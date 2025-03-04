@@ -4,13 +4,16 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
     private int score = 0;
     private int initialScore = 0;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject pauseUi;
     [SerializeField] private GameObject gameOverUi;
     [SerializeField] private GameObject gameWinUi;
     private bool isGameOver = false;
     private bool isGameWin = false;
+    private bool isPause = false;
     void Start()
     {
         score = PlayerPrefs.GetInt("CurrentScore", 0);
@@ -60,12 +63,22 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel(int levelId)
     {
-        isGameOver=false;
-        isGameWin=false;
-        UpdateScore();
-        Time.timeScale = 1;
-        string levelName = "Level " + (levelId+1);
-        SceneManager.LoadScene(levelName);
+        if(levelId == 3)
+        {
+            SceneManager.LoadScene("Menu");
+            PlayerPrefs.SetInt("UnlockedLevel", levelId);
+            Time.timeScale = 1;
+        }
+        else
+        {
+            isGameOver=false;
+            isGameWin=false;
+            UpdateScore();
+            Time.timeScale = 1;
+            string levelName = "Level " + (levelId+1);
+            PlayerPrefs.SetInt("UnlockedLevel", levelId);
+            SceneManager.LoadScene(levelName);
+        }
     }
     public bool IsGameOver()
     {
@@ -80,5 +93,17 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1;
+    }
+    public void Pause()
+    {
+        isPause = true;
+        Time.timeScale = 0;
+        pauseUi.SetActive(true);
+    }
+    public void Continue()
+    {
+        isPause = false;
+        Time.timeScale = 1;
+        pauseUi.SetActive(false);
     }
 }

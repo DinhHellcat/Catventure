@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class LevelMenu : MonoBehaviour
@@ -8,7 +9,7 @@ public class LevelMenu : MonoBehaviour
 
     private void Awake()
     {
-        PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("CurrentScore", 0);
         int unlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
         for(int i = 0; i < buttons.Length; i++)
         {
