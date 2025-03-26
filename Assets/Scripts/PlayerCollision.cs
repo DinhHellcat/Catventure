@@ -23,10 +23,12 @@ public class PlayerCollison : MonoBehaviour
         {
             Destroy(collision.gameObject);
             gameManager.AddScore(1);
+            AudioManager.Instance.PlayCollectSound();
         }
         else if (collision.CompareTag("Key"))
         {
             Destroy(collision.gameObject);
+            AudioManager.Instance.PlayCollectSound();
             gameManager.AddScore(10);
             gameManager.GameWin();
         }
@@ -45,7 +47,7 @@ public class PlayerCollison : MonoBehaviour
             {
                 // Bounce the player upward
                 rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-
+                AudioManager.Instance.PlayEnemyDefeatSound();
                 // Destroy the enemy
                 Destroy(collision.gameObject);
                 gameManager.AddScore(5);

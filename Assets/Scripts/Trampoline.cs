@@ -13,6 +13,7 @@ public class Trampoline : MonoBehaviour
         {
             // Thực hiện bật nhảy
             collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * bounce, ForceMode2D.Impulse);
+            AudioManager.Instance.PlayTrampolineSound();
             // Bắt đầu vô hiệu hóa tạm thời
             StartCoroutine(DisableBounceTemporarily());
         }
